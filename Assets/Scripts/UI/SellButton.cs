@@ -35,7 +35,7 @@ public class SellButton : MonoBehaviour
         {
             if (element.Data == _data)
             {
-                PotionSold?.Invoke((element.Data as PotionData).Cost);
+                PotionSold?.Invoke(_data.Cost);
                 element.Data = null;
             }
         }

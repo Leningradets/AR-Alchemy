@@ -5,11 +5,9 @@ using UnityEngine;
 public class BlendSystem : MonoBehaviour
 {
     [SerializeField] private ComplexElementData[] _complexElements;
-    [SerializeField] private PotionData[] _potions;
     [SerializeField] private SpoiledElementData _spoiledElement;
 
-    public ComplexElementData[] ComplexElements => _complexElements; 
-    public PotionData[] Potions => _potions;
+    public ComplexElementData[] ComplexElements => _complexElements;
 
     public ElementData Blend(Element element1, Element element2, ElementCondition state)
     {

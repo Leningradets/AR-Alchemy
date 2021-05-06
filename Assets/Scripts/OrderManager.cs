@@ -50,5 +50,6 @@ public class OrderManager : MonoBehaviour
     public void OnPotionSold(int potionCost)
     {
         SetOrder();
+        _player.AddCoins(potionCost);
     }
 }

@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
+    public event UnityAction<int> CoinsChanged;
+
     [SerializeField] private int _targetCoins;
     [SerializeField] WinPanel _winPanel;
     [SerializeField] Timer _timer;
-    
-    private int _coins;
 
-    public int Coins { get => _coins; set => _coins = value; }
+    public int TargetCoins => _targetCoins;
+
+    private int _coins;
 
     public void AddCoins(int coins)
     {
@@ -20,5 +23,7 @@ public class Player : MonoBehaviour
             _winPanel.gameObject.SetActive(true);
             _timer.enabled = false;
         }
+
+        CoinsChanged?.Invoke(_coins);
     }
 }

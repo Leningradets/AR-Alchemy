@@ -46,11 +46,14 @@ public class Element : MonoBehaviour
             {
                 if (element.Data)
                 {
-                    _nerabyElements.Add(element);
-
-                    if (_nerabyElements.Count > 1)
+                    if (!_nerabyElements.Contains(element))
                     {
-                        Blend();
+                        _nerabyElements.Add(element);
+
+                        if (_nerabyElements.Count > 1)
+                        {
+                            Blend();
+                        }
                     }
                 }
             }
